@@ -28,8 +28,9 @@
                         </div>
                         <span class="todo-list__editar font-icon icon-pencil" ng-click="editaItemTodoList($event)"></span>
                         <span class="todo-list__remover font-icon icon-trash-o" ng-click="apagaItemTodoList($index)"></span>
-                        <form ng-submit="formEditItemTodoList()">
+                        <form name="formEdit" ng-submit="formEditItemTodoList(formEdit)" novalidate>
                             <input type="text" class="todo-list__input-edit" ng-model="item.texto" ng-minlength="5" ng-maxlength="80">
+                            <button class="todo-list__button-edit"></button>
                         </form>
                     </li>
                 </ul>

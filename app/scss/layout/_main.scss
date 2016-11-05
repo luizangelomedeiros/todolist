@@ -3,6 +3,7 @@
 
 $fontPacifico: 'Pacifico', cursive;
 $fontLato: 'Lato', sans-serif;
+$fontIcones: 'icomoon';
 $CorPrincipal: #2c3e50;
 
 body{
@@ -53,7 +54,7 @@ body{
 		text-shadow: 1px 1px 1px #1c2731;
 		&:before{
   			content: "\e900";
-  			font-family: 'icomoon';
+  			font-family: $fontIcones;
   			font-size: 50px;
   			margin-right: 10px;
 		}
@@ -92,24 +93,25 @@ body{
 			   font-size: 18px;
 			}
 		}
-		.todo-list__button-add{
-		    position: absolute;
-		    right: 10px;
-			top: 6px;
-			width: 38px;
-			height: 38px;
-		    line-height: 38px;
-		    border: 0;
-		    background: #ffffff;
-		    outline: none;
-		    cursor: pointer;
-			@include border-radius(50%);
-			&:after{
-  				content: "\f067";
-				font-family: 'icomoon';
-				font-size: 22px;
-				color:$CorPrincipal;
-			}
+	}
+	.todo-list__button-add,
+	.todo-list__button-edit{
+	    position: absolute;
+	    right: 10px;
+		top: 6px;
+		width: 38px;
+		height: 38px;
+	    line-height: 38px;
+	    border: 0;
+	    background: #ffffff;
+	    outline: none;
+	    cursor: pointer;
+		@include border-radius(50%);
+		&:after{
+				content: "\f067";
+			font-family: $fontIcones;
+			font-size: 22px;
+			color:$CorPrincipal;
 		}
 	}
 	.todo-list__item{
@@ -158,6 +160,14 @@ body{
 		   	visibility: hidden;
 		   	@include transition(all 0.5s);
 		}
+		.todo-list__button-edit{
+			opacity: 0;
+		   	visibility: hidden;
+		   	@include transition(all 0.5s);
+			&:after{				
+			  	content: "\e901";
+			}
+		}
 		&.active{
 			background: #96a2af;
     		color: #53585d;
@@ -174,7 +184,8 @@ body{
 			}
 		}
 		&.editar{
-			.todo-list__input-edit{
+			.todo-list__input-edit,
+			.todo-list__button-edit{
 				opacity: 1;
 				visibility: visible;
 			}

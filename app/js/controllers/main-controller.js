@@ -42,12 +42,12 @@ angular.module('todoist').controller('TodoListController',['$scope', function($s
         angular.element(event.target).parent().addClass("editar");
     };
 
-    $scope.formEditItemTodoList = function() {
-        if($scope.modelEditaTodoList) {
-            $scope.itens[item].texto = "";
+    $scope.formEditItemTodoList = function(form) {
+        if (form.$valid) {
+            angular.element(event.target).parent().removeClass("editar");
         }else{
-            console.log("a");
-        }
+
+        }      
     };
 
     /* REMOVE ITEM NA LISTA */

@@ -1,0 +1,27 @@
+<div class="jumbotron">
+    <h1 class="text-center">Social</h1>
+</div>
+
+<p ng-show="mensagem.length" class="alert alert-info">
+    {{mensagem}}
+</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <form action="">
+        	<div class="input-group">
+        		<span class="input-group-btn">
+        			<a href="fotos/new" class="btn btn-primary">Nova Foto </a>
+        		</span>
+            	<input type="text" ng-model="filtro" ng-model-options="{debounce:500}" class="form-control" placeholder="filtrar">
+        	</div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <meu-painel class="col-md-2" ng-repeat="movie in movies | filter: filtro" titulo="{{movie.title}}">
+        <button ng-click="addMovie(movie.title)">add</button>
+        <button>remover</button>
+    </meu-painel>
+</div>

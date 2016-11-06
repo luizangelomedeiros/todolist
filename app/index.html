@@ -13,13 +13,15 @@
                 <h1 class="todo-list__title">
                      To do List
                 </h1>
-                <form ng-submit="addItemTodoList()">
+                <!-- ADICIONAR ITEM -->
+                <form name="formAdd" focus-input ng-submit="addItemTodoList(formAdd)">
                     <div class="todo-list__add">
-                        <input type="text" class="todo-list__input" ng-model="itemToDoList" placeholder="Digite a sua nova tarefa." name="addItemToList" ng-minlength="5" ng-maxlength="80">
+                        <input type="text" class="todo-list__input" focus-input ng-model="itemToDoList" placeholder="Digite a sua nova tarefa." name="addItemToList" ng-minlength="5" ng-maxlength="80">
                         <button class="todo-list__button-add"></button>
                     </div>
                 </form>
-
+                
+                <!-- LISTA DE ITENS -->
                 <ul>
                     <li class="todo-list__item" ng-repeat="item in itens" ng-class="item.finalizado ? 'active' : ''">
                         <span class="todo-list__marcar font-icon" ng-click="selecionaItemTodoList($index)" ng-class="item.finalizado ? 'icon-check_box' : 'icon-check_box_outline_blank'"></span>
@@ -27,13 +29,15 @@
                             {{item.texto}}            
                         </div>
                         <span class="todo-list__editar font-icon icon-pencil" ng-click="editaItemTodoList($event)"></span>
-                        <span class="todo-list__remover font-icon icon-trash-o" ng-click="apagaItemTodoList($index)"></span>
-                        <form name="formEdit" ng-submit="formEditItemTodoList(formEdit)" novalidate>
+                        <span class="todo-list__remover font-icon icon-trash-o" ng-click="abreModal($index)"></span>
+                        <form name="formEdit" ng-submit="formEditItemTodoList(formEdit)">
                             <input type="text" class="todo-list__input-edit" ng-model="item.texto" ng-minlength="5" ng-maxlength="80">
                             <button class="todo-list__button-edit"></button>
                         </form>
                     </li>
                 </ul>
+                
+                <!-- NUMERO TOTAL DE TAREFAS -->
                 <div class="todo-list__total">
                     <span class="todo-list__total-texto">
                         {{numeroDeItens()}}
@@ -41,6 +45,12 @@
                 </div>
             </main>
         </section>
+
+        <modal-confirm show="mostraModal" titulo="tarefaModal" indice="itemModal">
+          <p> Você tem certeza que deseja excluir a tarefa <p>
+        </modal-confirm>
+
+        <modal-alert mostrar="mostraAlert" tipo="tipoAlert"></modal-confirm>
 
         <script src="js/min/libs-angular.min.js"></script>
         <script src="js/min/main.min.js"></script>

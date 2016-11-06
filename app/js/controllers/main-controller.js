@@ -1,5 +1,6 @@
 angular.module('todoist').controller('TodoListController',['$scope', function($scope) {
 
+    /* SETANDO ITENS NA LISTA */
     $scope.itens = [
         {
             texto     : 'Lorem ipsum dolor sit amet',
@@ -16,7 +17,7 @@ angular.module('todoist').controller('TodoListController',['$scope', function($s
     ];
 
     /* ADICIONA ITEM NA LISTA */
-    $scope.addItemTodoList = function() {
+    $scope.addItemTodoList = function(form) {
         if($scope.itemToDoList) {
             $scope.itens.push({
                 texto       : $scope.itemToDoList,
@@ -24,7 +25,11 @@ angular.module('todoist').controller('TodoListController',['$scope', function($s
             });
             $scope.itemToDoList = "";
         }else{
-            console.log("a");
+            if(form.$error.maxlength){
+                abreAlert("Digite no maximo 80 caracteres!");
+            }else {
+                abreAlert("Digite ao menos 5 caracteres!");
+            }            
         }
     };
 
@@ -43,16 +48,15 @@ angular.module('todoist').controller('TodoListController',['$scope', function($s
     };
 
     $scope.formEditItemTodoList = function(form) {
-        if (form.$valid) {
+        if (form.$valid) {        
             angular.element(event.target).parent().removeClass("editar");
         }else{
-
+            if(form.$error.maxlength){
+                abreAlert("Digite no maximo 80 caracteres!");
+            }else {
+                abreAlert("Digite ao menos 5 caracteres!");
+            }
         }      
-    };
-
-    /* REMOVE ITEM NA LISTA */
-    $scope.apagaItemTodoList = function(item){
-        $scope.itens.splice(item, 1);
     };
     
     /* RETORNA QTD DE ITENS DA LISTA */
@@ -68,6 +72,29 @@ angular.module('todoist').controller('TodoListController',['$scope', function($s
             retorno += " Tarefas cadastradas"
         }
         return retorno;
+    };
+
+    /* ABRE MODAL */
+    $scope.mostraModal = false;
+    $scope.tarefaModal, $scope.itemModal = "";
+    $scope.abreModal = function(item){
+        var tarefa = $scope.itens[item].texto;
+        $scope.tarefaModal  = tarefa;
+        $scope.itemModal    = item;
+        $scope.mostraModal  = !$scope.mostraModal;
+    };
+
+    /* REMOVE ITEM NA LISTA */
+    apagaItemTodoList = function(item){
+        $scope.itens.splice(item, 1);
+    };
+
+    /* ABRE ALERT */
+    $scope.mostraAlert = false;
+    $scope.tipoAlert = "";
+    abreAlert = function(item){
+        $scope.tipoAlert    = item;
+        $scope.mostraAlert  = !$scope.mostraModal;
     };
 
 }]);

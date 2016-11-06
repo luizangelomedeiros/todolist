@@ -73,20 +73,14 @@ gulp.task('scripts', function() {
         .pipe(uglify())
         .on('error', gutil.log)
         .pipe(gulp.dest(dist+'js/min/'));
-    
-    var services = gulp.src(app+'js/services/*.js')
-        .pipe(plumber())
-        .pipe(concat('services.min.js'))
-        .on('error', gutil.log)
-        .pipe(gulp.dest(dist+'js/min/'));
-    
+        
     var main = gulp.src(app+'js/*.js')
         .pipe(plumber())
         .pipe(concat('main.min.js'))
         .on('error', gutil.log)
         .pipe(gulp.dest(dist+'js/min/'));
     
-    return merge(libs, controllers, directives, services, main);
+    return merge(libs, controllers, directives, main);
 });
 
 /* COMPILA E UNE CSS'S */
@@ -193,14 +187,12 @@ gulp.task('default', ['scaffold','copy','browserSync', 'scripts', 'styles', 'htm
     gulp.watch([
         app+'js/*.js',
         app+'js/controllers/*.js',
-        app+'js/directives/*.js',
-        app+'js/services/*.js'
+        app+'js/directives/*.js'
     ], ['scripts']);
     gulp.watch(app+'scss/**', ['styles']);
     gulp.watch(app+'images/**', ['images']);
     gulp.watch([
         app+'*.html',
-        app+'js/directives/*.html',
-        app+'partials/*.html'
+        app+'js/directives/*.html'
     ], ['html']);
 });

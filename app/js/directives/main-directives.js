@@ -35,4 +35,12 @@ angular.module("minhasDiretivas",[]).directive('modalConfirm',function(){
       templateUrl : "js/directives/modal-alert.html"
   };
 
+}).directive('setFocus',function(){
+   return {
+      link:  function(scope, element, attrs){
+        element.bind('click',function(){
+             document.querySelector('#' + attrs.setFocus).focus();
+        })
+      }
+    }
 });

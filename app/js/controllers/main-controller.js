@@ -53,7 +53,7 @@ angular.module('todoist').controller('TodoListController',['$scope', function($s
         }else{
             if(form.$error.maxlength){
                 abreAlert("Digite no maximo 80 caracteres!");
-            }else {
+            }else {                
                 abreAlert("Digite ao menos 5 caracteres!");
             }
         }      
@@ -96,5 +96,4 @@ angular.module('todoist').controller('TodoListController',['$scope', function($s
         $scope.tipoAlert    = item;
         $scope.mostraAlert  = !$scope.mostraModal;
     };
-
-}]);
+}]);    

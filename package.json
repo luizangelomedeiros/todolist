@@ -21,5 +21,16 @@
     "merge-stream": "^1.0.0"
   },
   "devDependencies": {},
-  "description": ""
+  "description": "To do List de tarefas desenvolvido com Angular, Sass, Gulp\u001b[D\u001b[D\u001b[D\u001b[D\u001b[ e Gulp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luizangelomedeiros/todolist.git"
+  },
+  "keywords": [
+    "todoliist\u001b[D\u001b[\u001b[3~\u001b[3~\u001b[3~st\u001b[3~\u001b[3~"
+  ],
+  "bugs": {
+    "url": "https://github.com/luizangelomedeiros/todolist/issues"
+  },
+  "homepage": "https://github.com/luizangelomedeiros/todolist#readme"
 }

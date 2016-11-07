@@ -1,10 +1,15 @@
 /*  */
-@media screen and (min-width : 770px) and (max-width : 1200px) {
-
-}
-
-@media screen and (max-width : 768px) {
- 
+@media screen and (max-width : 850px) {
+	.container {
+	    width: 90%;
+	    margin-left: -45%;
+	}
+	.todo-list .todo-list__item {
+	    align-items: center;
+	}
+	.modal__conteudo {
+    	width: 90% !important;
+	}
 }
 
 @media screen and (max-width : 399px) {

@@ -14,9 +14,9 @@
                      To do List
                 </h1>
                 <!-- ADICIONAR ITEM -->
-                <form name="formAdd" focus-input ng-submit="addItemTodoList(formAdd)">
+                <form name="formAdd" id="formAdd" ng-submit="addItemTodoList(formAdd)">
                     <div class="todo-list__add">
-                        <input type="text" class="todo-list__input" focus-input ng-model="itemToDoList" placeholder="Digite a sua nova tarefa." name="addItemToList" ng-minlength="5" ng-maxlength="80">
+                        <input type="text" id="inputAdd" class="todo-list__input" focus-input ng-model="itemToDoList" placeholder="Digite a sua nova tarefa." name="addItemToList" ng-minlength="5" ng-maxlength="80" ng-show="true" focus>
                         <button class="todo-list__button-add"></button>
                     </div>
                 </form>
@@ -28,14 +28,14 @@
                         <div class="todo-list__item-text">
                             {{item.texto}}            
                         </div>
-                        <span class="todo-list__editar font-icon icon-pencil" ng-click="editaItemTodoList($event)"></span>
+                        <span class="todo-list__editar font-icon icon-pencil" ng-click="editaItemTodoList($event)" set-focus="inputEditar{{$index}}"></span>
                         <span class="todo-list__remover font-icon icon-trash-o" ng-click="abreModal($index)"></span>
                         <form name="formEdit" ng-submit="formEditItemTodoList(formEdit)">
-                            <input type="text" class="todo-list__input-edit" ng-model="item.texto" ng-minlength="5" ng-maxlength="80">
+                            <input type="text" id="inputEditar{{$index}}" class="todo-list__input-edit" ng-model="item.texto" ng-minlength="5" ng-maxlength="80">
                             <button class="todo-list__button-edit"></button>
                         </form>
                     </li>
-                </ul>
+                </ul> 
                 
                 <!-- NUMERO TOTAL DE TAREFAS -->
                 <div class="todo-list__total">

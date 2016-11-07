@@ -147,12 +147,10 @@ body{
 		}				
 		.todo-list__input-edit{
 			position: absolute;
-			width: 100%;
+			width: 0%;
 			left: 0px;
 			height: 35px;
-			padding-left: 50px;
-			padding-right: 100px;
-		    top: 4px;
+			top: 4px;
 		    border: 0px;
 		    background: #10171f;
 		    color: #fff;
@@ -160,9 +158,8 @@ body{
 		   	font-size: 16px;
 		   	background: #63778C;
 		   	color:#FFFFFF;
-		   	opacity: 0;
-		   	visibility: hidden;
-		   	@include transition(all 0.5s);
+		   	opacity: 0;		   	
+			@include transition(all 0s);
 		}
 		.todo-list__button-edit{
 			opacity: 0;
@@ -188,6 +185,12 @@ body{
 			}
 		}
 		&.editar{
+			.todo-list__input-edit{
+				width: 100%;
+				padding-left: 50px;
+				padding-right: 100px;
+				@include transition(all 0.5s);
+			}
 			.todo-list__input-edit,
 			.todo-list__button-edit{
 				opacity: 1;

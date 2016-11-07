@@ -23,13 +23,18 @@ angular.module("minhasDiretivas",[]).directive('modalConfirm',function(){
   return {
       restrict: 'E',
       scope: {
-          mostrar: '=',
-          tipo: "="
+          form    : '=',
+          mostrar : '=',
+          tipo    : "="
       },
       transclude: true,
       link: function(scope, element, attrs) {         
-          scope.escondeAlert = function() {
+          scope.escondeAlert = function(id) {
             scope.mostrar = false;
+            var pegaInput = document.querySelector(id+' .ng-invalid');
+            if (pegaInput) {
+                pegaInput.focus();
+            }
           };
       },
       templateUrl : "js/directives/modal-alert.html"
@@ -39,8 +44,9 @@ angular.module("minhasDiretivas",[]).directive('modalConfirm',function(){
    return {
       link:  function(scope, element, attrs){
         element.bind('click',function(){
-             document.querySelector('#' + attrs.setFocus).focus();
+            document.querySelector('#' + attrs.setFocus).focus();
         })
       }
     }
+
 });

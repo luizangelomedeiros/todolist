@@ -25,10 +25,11 @@ angular.module('todoist').controller('TodoListController',['$scope', function($s
             });
             $scope.itemToDoList = "";
         }else{
+            var formId = "#formAdd";
             if(form.$error.maxlength){
-                abreAlert("Digite no maximo 80 caracteres!");
+                abreAlert("Digite no maximo 80 caracteres!",formId);
             }else {
-                abreAlert("Digite ao menos 5 caracteres!");
+                abreAlert("Digite ao menos 5 caracteres!",formId);
             }            
         }
     };
@@ -51,10 +52,11 @@ angular.module('todoist').controller('TodoListController',['$scope', function($s
         if (form.$valid) {        
             angular.element(event.target).parent().removeClass("editar");
         }else{
+            var formId = "#formEdit";
             if(form.$error.maxlength){
-                abreAlert("Digite no maximo 80 caracteres!");
-            }else {                
-                abreAlert("Digite ao menos 5 caracteres!");
+                abreAlert("Digite no maximo 80 caracteres!",formId);
+            }else {
+                abreAlert("Digite ao menos 5 caracteres!",formId);
             }
         }      
     };
@@ -92,8 +94,9 @@ angular.module('todoist').controller('TodoListController',['$scope', function($s
     /* ABRE ALERT */
     $scope.mostraAlert = false;
     $scope.tipoAlert = "";
-    abreAlert = function(item){
+    abreAlert = function(item, id){
         $scope.tipoAlert    = item;
+        $scope.formAlert    = id;
         $scope.mostraAlert  = !$scope.mostraModal;
     };
 }]);    

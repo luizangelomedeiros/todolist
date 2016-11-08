@@ -1,5 +1,5 @@
 {
-  "name": "todoist",
+  "name": "todolist",
   "version": "1.0.0",
   "main": "gulpfile.js",
   "scripts": {
@@ -20,7 +20,10 @@
     "gulp-util": "^3.0.7",
     "merge-stream": "^1.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-shell": "^0.5.2"
+  },
   "description": "To do List de tarefas desenvolvido com Angular, Sass, Gulp\u001b[D\u001b[D\u001b[D\u001b[D\u001b[ e Gulp",
   "repository": {
     "type": "git",

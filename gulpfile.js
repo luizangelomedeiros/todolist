@@ -14,6 +14,7 @@ var htmlmin     = require('gulp-htmlmin');
 var browserSync = require('browser-sync');
 var merge       = require('merge-stream');
 var shell       = require('gulp-shell');
+var deploy      = require('gulp-gh-pages');
 
 /* LISTA DE NAVEGADORES SUPORTE - AUTOPREFIXER*/
 var autoPrefixBrowserList = [
@@ -195,4 +196,9 @@ gulp.task('default', ['scaffold','copy','browserSync', 'scripts', 'styles', 'htm
         app+'*.html',
         app+'js/directives/*.html'
     ], ['html']);
+});
+
+gulp.task('deploy', function () {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy())
 });

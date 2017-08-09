@@ -5,7 +5,7 @@ To do list - Gerenciador de tarefas !
 -------------
 
 ----------
-##### **Demo**: [http://www.luizangelo.com/todolist/](http://www.luizangelo.com/todolist/)
+##### **Demo**: [https://luizangelomedeiros.github.io/todolist/](https://luizangelomedeiros.github.io/todolist/)
 
 ---------
 
